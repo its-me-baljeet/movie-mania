@@ -22,16 +22,12 @@ export async function handleSubmit(formData) {
     const user = users.find((user) => (user.username == username && user.password == password));
 
     if (user) {
-        console.log("Login Successful!");
         const userCookies = await cookies();
         userCookies.set('user', user.username);
-        redirect('/');
-        return (
-            {
-                success: true,
-                message: "User login Successful!"
-            }
-        );
+        return {
+            success: true,
+            message: "Login Success!"
+        }
     }
     else {
         return {

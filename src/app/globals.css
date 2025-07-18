@@ -9,11 +9,14 @@
   --font-open-sans: "Open Sans", sans-serif;
   --font-roboto-mono: "Roboto Mono", monospace;
   /* Dark Theme Variable Overrides */
-  --color-background: #222831;
+  --color-background-dark: #222831;
+  --color-background: #F9FAFB;
   /* Darkest */
-  --color-foreground: #DFD0B8;
+  --color-foreground-dark: #DFD0B8;
+  --color-foreground: #222831;
   /* Light Beige (for text) */
-  --color-card: #393E46;
+  --color-card-dark: #393E46;
+  --color-card: #FFFFFF;
   /* Dark Gray (for card surfaces) */
   --color-primary: #FF0B55;
   /* Muted Tone (as primary accent) */
