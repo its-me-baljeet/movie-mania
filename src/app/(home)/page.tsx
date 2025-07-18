@@ -1,19 +1,18 @@
-import Filters from "@/components/filters";
+import MovieCard from "@/components/movieCard";
+import { NowPlayingResponse } from "@/types";
+import { getNowPlayingMovies } from "@/utils/api";
+import { Grid } from "@radix-ui/themes";
 
-type HomeProps = {
-  searchParams?: Promise<{
-    query?: string;
-  }>;
-}
-
-export default function Home({ searchParams }: HomeProps) {
+export default async function Home() {
+  const data: NowPlayingResponse = await getNowPlayingMovies();
+  const results = data.results;
   return (
-    <div className="h-[calc(100vh-80px)] w-screen">
-      <main className="h-full w-full grid sm:grid-cols-12">
-        <Filters searchParams={searchParams} />
-        <section className="sm:col-span-10">
-        </section>
-      </main>
-    </div>
+    <section className="grid sm:grid-cols-4 justify-center items-center h-full w-full gap-5 p-5">
+      {
+        results.map((movie) => {
+          return <MovieCard key={movie.id} movie={movie} />
+        })
+      }
+    </section>
   );
 }

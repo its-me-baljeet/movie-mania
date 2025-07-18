@@ -1,37 +1,29 @@
 import { MovieObj } from "@/types";
-import { Avatar, Box, Card, Flex, Text } from "@radix-ui/themes";
+import Image from "next/image";
+import Link from 'next/link';
 
 type MovieCardProps = {
     movie: MovieObj;
 };
 
 export default function MovieCard({ movie }: MovieCardProps) {
-    const {
-        title,
-        overview,
-        poster_path,
-        release_date,
-        vote_average
-    } = movie;
+    const { id, title, poster_path, release_date } = movie;
 
     return (
-        <Box className=" w-full p-4 rounded-md shadow-md">
-            <Flex gap="3" align="center">
-                <Avatar
-                    size="3"
-                    src={`https://image.tmdb.org/t/p/w92${poster_path}`}
-                    radius="full"
-                    fallback="?"
+        <Link href={`/movie/${id}`} className="h-full w-full cursor-pointer group">
+            <div className="overflow-hidden rounded-lg shadow-md">
+                <Image
+                    src={`https://image.tmdb.org/t/p/original${poster_path}`}
+                    alt={title}
+                    width={500}
+                    height={750}
+                    className="block object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
-                <Box>
-                    <Text as="div" size="2" weight="bold">
-                        {title}
-                    </Text>
-                    <Text as="div" size="1" color="gray">
-                        {release_date}
-                    </Text>
-                </Box>
-            </Flex>
-        </Box>
+            </div>
+            <div className="mt-2">
+                <p className="text-lg font-medium truncate">{title}</p>
+                <p className="text-sm text-muted-foreground">{new Date(release_date).getFullYear()}</p>
+            </div>
+        </Link>
     );
 }

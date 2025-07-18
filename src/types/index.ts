@@ -14,7 +14,17 @@ export interface MovieObj {
     vote_average: number;
     vote_count: number;
 }
-export interface MovieResponse {
+export interface SearchMovieResponse {
+    page: number;
+    results: MovieObj[];
+    total_results: number;
+    total_pages: number;
+}
+export interface NowPlayingResponse {
+    dates: {
+        maximum: string;
+        minimum: string;
+    };
     page: number;
     results: MovieObj[];
     total_results: number;
