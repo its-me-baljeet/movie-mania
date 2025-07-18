@@ -58,17 +58,8 @@ export async function handleSubmit(formData) {
     //     }
     // );
 }
-export async function handleClick(name: string) {
-    console.log("Recieved a Request");
-    console.log(name);
-}
-
-export async function setCookie() {
-    const userCookies = await cookies();
-    userCookies.set('name', 'Baljeet Singh');
-}
 
 export async function logout() {
     const userCookies = await cookies();
-    userCookies.delete("name");
+    userCookies.delete("user");
 }

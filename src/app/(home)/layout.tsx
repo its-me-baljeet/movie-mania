@@ -14,7 +14,7 @@ export default function Layout({ children }: {
                 <Header />
                 <section className="min-h-[calc(100vh-60px)] w-full grid sm:grid-cols-12">
                     <Sidebar />
-                    <main className="sm:col-span-10 h-full w-full">
+                    <main className="sm:col-span-10 h-full w-full text-foreground dark:text-foreground-dark">
                         {children}
                     </main>
                 </section>

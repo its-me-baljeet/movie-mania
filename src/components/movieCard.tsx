@@ -21,7 +21,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
                 />
             </div>
             <div className="mt-2">
-                <p className="text-lg font-medium truncate">{title}</p>
+                <p className="text-lg font-medium truncate text-foreground dark:text-foreground-dark">{title}</p>
                 <p className="text-sm text-muted-foreground">{new Date(release_date).getFullYear()}</p>
             </div>
         </Link>
